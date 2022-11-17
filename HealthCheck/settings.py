@@ -1,4 +1,5 @@
 from pathlib import Path
+from decouple import config
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -131,3 +132,11 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storageMediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Sending emails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'demo.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EADDRESS')
+EMAIL_HOST_PASSWORD = config('EPASSWORD')
